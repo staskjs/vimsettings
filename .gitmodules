@@ -48,4 +48,4 @@
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "bundle/vim-railscasts-theme"]
 	path = bundle/vim-railscasts-theme
-	url = https://github.com/jpo/vim-railscasts-theme.git
+	url = git@github.com:jpo/vim-railscasts-theme.git
