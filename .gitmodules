@@ -42,7 +42,7 @@
 	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "vim-nerdtree-tabs"]
 	path = vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
+	uarl = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -52,3 +52,6 @@
 [submodule "bundle/vim-nerdtree-tabs"]
 	path = bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "bundle/vim-railscasts-theme"]
+	path = bundle/vim-railscasts-theme
+	url = https://github.com/jpo/vim-railscasts-theme.git
