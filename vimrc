@@ -106,3 +106,7 @@ map  <C-S-h> :bp<CR>
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
+let g:EasyMotion_do_mapping = 0
+nmap w <Plug>(easymotion-bd-w)
+nmap s <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
