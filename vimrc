@@ -106,4 +106,3 @@ map  <C-S-h> :bp<CR>
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
-
