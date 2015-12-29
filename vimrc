@@ -101,8 +101,8 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeTabsToggle<CR>
-map  <C-S-l> :tabn<CR>
-map  <C-S-h> :tabp<CR>
+map  <C-S-l> :bn<CR>
+map  <C-S-h> :bp<CR>
 
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
