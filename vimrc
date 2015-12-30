@@ -110,3 +110,8 @@ let g:EasyMotion_do_mapping = 0
 nmap w <Plug>(easymotion-bd-w)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
+
+set keymap=russian-jcukenwin 
+set iminsert=0 
+set imsearch=0 
+highlight lCursor guifg=NONE guibg=Cyan
