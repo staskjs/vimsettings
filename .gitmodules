@@ -61,3 +61,6 @@
 [submodule "bundle/Smart-Tabs"]
 	path = bundle/Smart-Tabs
 	url = https://github.com/vim-scripts/Smart-Tabs
+[submodule "bundle/nerdtree-git-plugin"]
+	path = bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
