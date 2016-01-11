@@ -129,4 +129,5 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
 
 let g:syntastic_typescript_tsc_fname = ''
 
-
+" Закрытие буффера 
+:nnoremap <Leader>q :Bdelete<CR>
