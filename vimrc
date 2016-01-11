@@ -2,7 +2,7 @@ execute pathogen#infect()
 
 set encoding=utf8
 set background=light
-"colorscheme solarized
+" colorscheme molokai
 
 "  Показывать номера строк
 set number
