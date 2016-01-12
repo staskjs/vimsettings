@@ -131,3 +131,4 @@ let g:syntastic_typescript_tsc_fname = ''
 
 " Закрытие буффера 
 :nnoremap <Leader>q :Bdelete<CR>
+
