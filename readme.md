@@ -1,3 +1,4 @@
+# Installation
 ```
 cd ~
 git clone https://github.com/dragothefiery/vimsettings.git ~/.vim
@@ -11,7 +12,8 @@ git submodule update --init --recursive
 
 `<leader>` is `,` because `\` is not easily accessible on some russian keyboards
 
-Shortcuts:
+# Shortcuts
+
 `Ctrl-^` - keyboard layout switch
 
 `Ctrl-n` - toggle file explorer
