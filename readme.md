@@ -8,15 +8,28 @@ git submodule update
 OR
 git submodule update --init --recursive
 ```
+
+<leader> is `,` because `\` is not easily accessible on some russian keyboards
+
 Shortcuts:
-`Ctrl-^` - Keyboard layout switch
-`Ctrl-N` - Toggle file explorer
-`<leader>ci` - Toggle comment
-`F2` - find word under cursor in all files
-`Ctrl-W-W` - cycle between opened windows
+`Ctrl-^` - keyboard layout switch
+
+`Ctrl-n` - toggle file explorer
+
+`<leader>ci` - toggle comment
+
+`F4` - find word under cursor in all files
+
+`Ctrl-w-w` - cycle between opened windows
+
 `Ctrl-h` - previous buffer
+
 `Ctrl-l` - next buffer
+
 `s` - easymotion find
+
 `w`- easymotion bidirectional find
 
+`<leader>q` - close current buffer
 
+`Ctrl-S` - surround with
