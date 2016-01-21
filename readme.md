@@ -9,7 +9,7 @@ OR
 git submodule update --init --recursive
 ```
 
-<leader> is `,` because `\` is not easily accessible on some russian keyboards
+`<leader>` is `,` because `\` is not easily accessible on some russian keyboards
 
 Shortcuts:
 `Ctrl-^` - keyboard layout switch
