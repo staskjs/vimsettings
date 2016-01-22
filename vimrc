@@ -132,3 +132,7 @@ let g:syntastic_typescript_tsc_fname = ''
 " Закрытие буффера 
 :nnoremap <Leader>q :Bdelete<CR>
 let NERDTreeShowHidden=1
+
+" Очистка подсветки по esc
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
