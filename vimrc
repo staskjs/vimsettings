@@ -146,3 +146,8 @@ nnoremap <esc>^[ <esc>^[
 let g:Powerline_symbols = 'fancy'
 
 let javascript_enable_domhtmlcss = 1
+
+let g:CoffeeAutoTagFile = './coffeetags'
+
+"let g:easytags_async = 1
+let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
