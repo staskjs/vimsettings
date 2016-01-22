@@ -1,8 +1,11 @@
 execute pathogen#infect()
 
 set encoding=utf8
-set background=light
+set background=dark
+set t_Co=256
 " colorscheme molokai
+colorscheme xoria256
+set guifont=menlo\ for\ powerline:h16
 
 "  Показывать номера строк
 set number
@@ -80,7 +83,7 @@ set wildmenu
 " set list listchars=tab:→\ ,trail:·
 " Включение сторонних плагинов
 filetype plugin on
-" Переключение leader-кнопки на запятую
+" Switch leader-button to comma
 let mapleader=","
 
 
@@ -104,7 +107,8 @@ map <C-n> :NERDTreeTabsToggle<CR>
 map  <C-S-l> :bn<CR>
 map  <C-S-h> :bp<CR>
 
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+" map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 let g:EasyMotion_do_mapping = 0
 nmap w <Plug>(easymotion-bd-w)
@@ -129,10 +133,16 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
 
 let g:syntastic_typescript_tsc_fname = ''
 
-" Закрытие буффера 
+" Buffer close
 :nnoremap <Leader>q :Bdelete<CR>
+
+" Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" Очистка подсветки по esc
+" Clear highlighting by esc
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+let g:Powerline_symbols = 'fancy'
+
+let javascript_enable_domhtmlcss = 1
