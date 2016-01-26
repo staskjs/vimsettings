@@ -97,3 +97,9 @@
 [submodule "bundle/xoria256.vim"]
 	path = bundle/xoria256.vim
 	url = https://github.com/vim-scripts/xoria256.vim
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
