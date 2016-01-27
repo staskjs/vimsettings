@@ -137,7 +137,7 @@ let g:syntastic_typescript_tsc_fname = ''
 :nnoremap <Leader>q :Bdelete<CR>
 
 " Show hidden files in NERDTree
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1
 
 " Clear highlighting by esc
 nnoremap <esc> :noh<return><esc>
@@ -151,3 +151,10 @@ let g:CoffeeAutoTagFile = './coffeetags'
 
 "let g:easytags_async = 1
 let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'yes'
+let g:session_directory = ".vim/sessions"
+let g:session_lock_enabled = 0
+
+autocmd BufLeave * :SaveSession!
