@@ -136,9 +136,6 @@ let g:syntastic_typescript_tsc_fname = ''
 " Buffer close
 :nnoremap <Leader>q :Bdelete<CR>
 
-" Show hidden files in NERDTree
-"let NERDTreeShowHidden=1
-
 " Clear highlighting by esc
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
@@ -157,4 +154,5 @@ let g:session_autoload = 'yes'
 let g:session_directory = ".vim/sessions"
 let g:session_lock_enabled = 0
 
-autocmd BufLeave * :SaveSession!
+"autocmd BufLeave * :SaveSession!
+:nnoremap <Leader>ss :SaveSession!<CR>
