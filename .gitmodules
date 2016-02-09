@@ -67,9 +67,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = https://github.com/tomasr/molokai
 [submodule "bundle/vim-bbye"]
 	path = bundle/vim-bbye
 	url = https://github.com/moll/vim-bbye.git
@@ -109,3 +106,6 @@
 [submodule "bundle/vim-wakatime"]
 	path = bundle/vim-wakatime
 	url = git://github.com/wakatime/vim-wakatime.git
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = git://github.com/jiangmiao/auto-pairs.git

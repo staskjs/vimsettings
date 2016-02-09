@@ -7,84 +7,89 @@ set t_Co=256
 colorscheme xoria256
 set guifont=menlo\ for\ powerline:h16
 
-"  Показывать номера строк
+" Show line numbers
 set number
-" Включить подсветку синтаксиса
+" Turn on syntax highlight
 syntax on
-" Поиск в процессе набора
+" Search while typing
 set incsearch
-" Подсвечивание результатов поиска
+" Highlight search results
 set hlsearch
-" умная зависимость от регистра. Детали `:h smartcase`
+" Smart case. Details `:h smartcast`
 set ignorecase
 set smartcase
-" Кодировка текста по умолчанию utf8
+" Default encoding utf8
 set termencoding=utf8
-" Включаем несовместимость настроек с Vi, так как Vi нам и не понадобится
+" Turn on incompatibility for vi settings, bacause we wont need vi
 set nocompatible
-" Показывать положение курсора всё время.
+" Show cursor position all the time
 set ruler
-" Показывать незавершённые команды в статусбаре
+" Show unfinished commands in status bar
 set showcmd
-" Фолдинг по отсупам
+" Folding by indents
 set foldenable
 set foldlevel=100
 set foldmethod=indent
-" Выключаем звуковое оповещение о достижении конца буффера, невозможности действия и т.д.
+" Turn off sounds
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-" Поддержка мыши
+" Support for a mouse
 set mouse=a
 set mousemodel=popup
-" Не выгружать буфер, когда переключаемся на другой
-" Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
-" когда переключаешься между ними
+" Do not write buffer while switching to another
+" This lets to edit multiple files without need to save each time before
+" switching
 set hidden
-" Скрыть панель в gui версии
+" Hide panel in gui version
 set guioptions-=T
-" Сделать строку команд высотой в одну строку
+" Command panel one line high
 set ch=1
-" Скрывать указатель мыши, когда печатаем
+" Hide mouse pointer while typing
 set mousehide
-" Включить автоотступы
+" Tugn on autoindents
 set autoindent
-" Не переносить строки
+" Do not force new line
 set nowrap
-" Преобразование Таба в пробелы
+" Tab to space
 "  set expandtab
-" Размер табуляции по умолчанию
+" Tab default width
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-" Формат строки состояния. Альтернативные варианты настройки `:h statusline`
+" Statusline format
 " set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
 set laststatus=2
-" Включаем "умные" отступы, например, авто отступ после `{`
+" Turn on smart indents. For example, an indent after `{`
 set smartindent
-" Отображение парных символов
+" Display metching symbols
 set showmatch
-" Указание размеров окна редактора по умолчанию
+" Default window size
 set lines=50
 set columns=140
-" Навигация с учетом русских символов, учитывается командами
-"  следующее/предыдущее слово и т.п.
+" Russian symbols navigation. Next\prev word , etc
 set iskeyword=@,48-57,_,192-255
-" Удаление символов бэкспэйсом в Windows
+" Delete symbols by backspace in Windows
 set backspace=indent,eol,start
-" Подсвечивать линию текста, на которой находится курсор
+" Highlight line where cursor is positioned
 set cursorline
 "highlight CursorLine guibg=lightblue ctermbg=lightgray
 "highlight CursorLine term=none cterm=none
-" Увеличение размера истории
+" Enlarge history size
 set history=200
-" Дополнительная информация в строке состояния
+" Additional info on status line
 set wildmenu
-" Настройка отображения специальных символов
+" Special symbols display
 " set list listchars=tab:→\ ,trail:·
-" Включение сторонних плагинов
+" Turn on side plugins
 filetype plugin on
 " Switch leader-button to comma
 let mapleader=","
+
+" Quick open .vimrc
+nmap <leader>ev :e $MYVIMRC<CR>
+
+" Auto-source Vimrc on save
+autocmd BufWritePost vimrc source %
 
 
 function! SuperCleverTab()
@@ -110,27 +115,29 @@ map  <C-S-h> :bp<CR>
 " map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
+" Easy Motion
 let g:EasyMotion_do_mapping = 0
 nmap w <Plug>(easymotion-bd-w)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 
+" Russian language support, switch layout on Ctrl-^
 set keymap=russian-jcukenwin 
 set iminsert=0 
 set imsearch=0 
+
 highlight lCursor guifg=NONE guibg=Cyan
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Syntastic
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
-
 let g:syntastic_typescript_tsc_fname = ''
 
 " Buffer close
@@ -146,9 +153,11 @@ let javascript_enable_domhtmlcss = 1
 
 let g:CoffeeAutoTagFile = './coffeetags'
 
+" CTAGS auto update
 "let g:easytags_async = 1
 let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
 
+" Sessions
 let g:session_autosave = 'no'
 let g:session_autoload = 'yes'
 let g:session_directory = ".vim/sessions"
@@ -156,3 +165,5 @@ let g:session_lock_enabled = 0
 
 "autocmd BufLeave * :SaveSession!
 :nnoremap <Leader>ss :SaveSession!<CR>
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
