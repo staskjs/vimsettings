@@ -64,8 +64,8 @@ set smartindent
 " Display metching symbols
 set showmatch
 " Default window size
-set lines=50
-set columns=140
+"set lines=50
+"set columns=140
 " Russian symbols navigation. Next\prev word , etc
 set iskeyword=@,48-57,_,192-255
 " Delete symbols by backspace in Windows
@@ -126,15 +126,14 @@ set keymap=russian-jcukenwin
 set iminsert=0 
 set imsearch=0 
 
-highlight lCursor guifg=NONE guibg=Cyan
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
@@ -167,3 +166,20 @@ let g:session_lock_enabled = 0
 :nnoremap <Leader>ss :SaveSession!<CR>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
+
+"----------- Visuals ------------
+
+highlight lCursor ctermfg=NONE ctermbg=Cyan
+
+" Line number background
+highlight LineNr ctermbg=bg
+
+" Remove ugly vertical split border background
+highlight vertsplit ctermbg=bg ctermfg=grey
+
+" Clear left git gutter column colors
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
