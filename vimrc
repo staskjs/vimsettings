@@ -3,9 +3,7 @@ execute pathogen#infect()
 set encoding=utf8
 set background=dark
 set t_Co=256
-" colorscheme molokai
 colorscheme xoria256
-set guifont=menlo\ for\ powerline:h16
 
 " Show line numbers
 set number
@@ -40,8 +38,11 @@ set mousemodel=popup
 " This lets to edit multiple files without need to save each time before
 " switching
 set hidden
-" Hide panel in gui version
+" Hide panel and scrollbars in gui version
 set guioptions-=T
+set guioptions-=r
+set guioptions-=l
+set guioptions-=L
 " Command panel one line high
 set ch=1
 " Hide mouse pointer while typing
@@ -172,10 +173,10 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
 highlight lCursor ctermfg=NONE ctermbg=Cyan
 
 " Line number background
-highlight LineNr ctermbg=bg
+highlight LineNr ctermbg=bg guibg=bg
 
 " Remove ugly vertical split border background
-highlight vertsplit ctermbg=bg ctermfg=grey
+highlight vertsplit ctermbg=bg ctermfg=grey guibg=bg guifg=grey
 
 " Clear left git gutter column colors
 highlight clear SignColumn
