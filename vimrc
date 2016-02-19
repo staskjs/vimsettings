@@ -124,7 +124,7 @@ map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
-"nmap w <Plug>(easymotion-bd-w)
+nmap <Space> <Plug>(easymotion-bd-w)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 
