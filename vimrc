@@ -6,6 +6,7 @@ set t_Co=256
 colorscheme xoria256
 
 " Show line numbers
+set relativenumber
 set number
 " Turn on syntax highlight
 syntax on
@@ -32,8 +33,8 @@ set foldmethod=indent
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 " Support for a mouse
-set mouse=a
-set mousemodel=popup
+"set mouse=a
+"set mousemodel=popup
 " Do not write buffer while switching to another
 " This lets to edit multiple files without need to save each time before
 " switching
@@ -106,6 +107,11 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 let g:ycm_auto_trigger = 0
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
@@ -118,7 +124,7 @@ map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
-nmap w <Plug>(easymotion-bd-w)
+"nmap w <Plug>(easymotion-bd-w)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 
@@ -168,6 +174,14 @@ let g:session_lock_enabled = 0
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
 
+let g:slime_target = "tmux"
+
+" Enable hard mode by default
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*"  ]
+let g:hardtime_timeout = 500
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
@@ -184,3 +198,4 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
+

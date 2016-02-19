@@ -109,3 +109,6 @@
 [submodule "bundle/auto-pairs"]
 	path = bundle/auto-pairs
 	url = git://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/vim-hardtime"]
+	path = bundle/vim-hardtime
+	url = https://github.com/takac/vim-hardtime.git
