@@ -124,9 +124,14 @@ map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
-nmap <Space> <Plug>(easymotion-bd-w)
+map <Leader> <Plug>(easymotion-prefix)
+"nmap <Space> <Plug>(easymotion-bd-w)
+nmap <Space> <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
+nmap J <Plug>(easymotion-j)
+nmap K <Plug>(easymotion-k)
+"nmap <Leader>s <Plug>(easymotion-jumptoanywhere)
 
 " Russian language support, switch layout on Ctrl-^
 set keymap=russian-jcukenwin 
