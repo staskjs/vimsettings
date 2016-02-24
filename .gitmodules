@@ -112,3 +112,9 @@
 [submodule "bundle/vim-hardtime"]
 	path = bundle/vim-hardtime
 	url = https://github.com/takac/vim-hardtime.git
+[submodule "bundle/vim-jst"]
+	path = bundle/vim-jst
+	url = https://github.com/briancollins/vim-jst.git
+[submodule "bundle/vim-autoformat"]
+	path = bundle/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git

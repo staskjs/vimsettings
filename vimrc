@@ -122,9 +122,13 @@ map  <C-S-h> :bp<CR>
 " map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
+" Autoformat options
+noremap <F3> :Autoformat<CR>
+let g:formatters_ejs = ['htmlbeautify']
+
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
-"map <Leader> <Plug>(easymotion-prefix)
+map <Leader> <Plug>(easymotion-prefix)
 map <Space> <Plug>(easymotion-bd-w)
 map <Leader><Space> <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-s)
