@@ -81,7 +81,8 @@ set history=200
 " Additional info on status line
 set wildmenu
 " Special symbols display
-" set list listchars=tab:→\ ,trail:·
+set list listchars=tab:→\ ,trail:·
+highlight SpecialKey guifg=darkgrey ctermfg=darkgrey
 " Turn on side plugins
 filetype plugin on
 " Switch leader-button to comma
@@ -89,6 +90,7 @@ let mapleader=","
 
 " Quick open .vimrc
 nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>es :source $MYVIMRC<CR>
 
 " Auto-source Vimrc on save
 autocmd BufWritePost vimrc source %
@@ -123,8 +125,16 @@ map  <C-S-h> :bp<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Autoformat options
-noremap <F3> :Autoformat<CR>
 let g:formatters_ejs = ['htmlbeautify']
+let g:formatters_eruby = ['htmlbeautify']
+function! MyAutoformat()
+	if &filetype == 'php'
+		:call PhpCsFixerFixFile()
+	else
+		:Autoformat
+	endif
+endfunction
+noremap <F3> :call MyAutoformat()<CR>
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0

@@ -121,3 +121,9 @@
 [submodule "bundle/vim-sleuth"]
 	path = bundle/vim-sleuth
 	url = git://github.com/tpope/vim-sleuth.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/tmhedberg/matchit.git
+[submodule "bundle/vim-php-cs-fixer"]
+	path = bundle/vim-php-cs-fixer
+	url = git@github.com:stephpy/vim-php-cs-fixer.git
