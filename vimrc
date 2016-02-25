@@ -1,9 +1,16 @@
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'bufexplorer.zip')
+call add(g:pathogen_disabled, 'vim-gitgutter')
+call add(g:pathogen_disabled, 'syntastic')
+call add(g:pathogen_disabled, 'vim-railscasts-theme')
 execute pathogen#infect()
 
 set encoding=utf8
 set background=dark
 set t_Co=256
 colorscheme xoria256
+
+filetype plugin indent on
 
 " Show line numbers
 set relativenumber
