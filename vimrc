@@ -3,6 +3,8 @@ call add(g:pathogen_disabled, 'bufexplorer.zip')
 call add(g:pathogen_disabled, 'vim-gitgutter')
 call add(g:pathogen_disabled, 'syntastic')
 call add(g:pathogen_disabled, 'vim-railscasts-theme')
+call add(g:pathogen_disabled, 'vim-colors-solarized')
+call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
 execute pathogen#infect()
 
 set encoding=utf8
@@ -124,7 +126,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
-map <C-n> :NERDTreeTabsToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 map  <C-S-l> :bn<CR>
 map  <C-S-h> :bp<CR>
 
