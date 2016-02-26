@@ -133,3 +133,6 @@
 [submodule "bundle/editorconfig-vim"]
 	path = bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "bundle/vim-autoswap"]
+	path = bundle/vim-autoswap
+	url = https://github.com/gioele/vim-autoswap.git
