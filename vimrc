@@ -5,6 +5,9 @@ call add(g:pathogen_disabled, 'syntastic')
 call add(g:pathogen_disabled, 'vim-railscasts-theme')
 call add(g:pathogen_disabled, 'vim-colors-solarized')
 call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
+"call add(g:pathogen_disabled, 'vim-sleuth')
+"call add(g:pathogen_disabled, 'vim-endwise')
+call add(g:pathogen_disabled, 'vim-rails')
 execute pathogen#infect()
 
 set encoding=utf8
@@ -62,7 +65,7 @@ set autoindent
 " Do not force new line
 set nowrap
 " Tab to space
-"  set expandtab
+"set noexpandtab
 " Tab default width
 set shiftwidth=4
 set softtabstop=4
@@ -71,7 +74,7 @@ set tabstop=4
 " set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
 set laststatus=2
 " Turn on smart indents. For example, an indent after `{`
-set smartindent
+"set smartindent
 " Display metching symbols
 set showmatch
 " Default window size
@@ -127,8 +130,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
-map  <C-S-l> :bn<CR>
-map  <C-S-h> :bp<CR>
+map  <C-l> :bn<CR>
+map  <C-h> :bp<CR>
 
 " map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -136,9 +139,13 @@ map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 " Autoformat options
 let g:formatters_ejs = ['htmlbeautify']
 let g:formatters_eruby = ['htmlbeautify']
+let g:php_cs_fixer_level = "symfony"
+"let g:php_cs_fixer_fixers_list = "-indentation"
 function! MyAutoformat()
 	if &filetype == 'php'
 		:call PhpCsFixerFixFile()
+		:set noexpandtab
+		:retab!
 	else
 		:Autoformat
 	endif
@@ -152,8 +159,6 @@ map <Space> <Plug>(easymotion-bd-w)
 map <Leader><Space> <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
-nmap J <Plug>(easymotion-j)
-nmap K <Plug>(easymotion-k)
 "nmap <Leader>s <Plug>(easymotion-jumptoanywhere)
 
 " Russian language support, switch layout on Ctrl-^
@@ -215,6 +220,8 @@ let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<R
 nnoremap + <C-a>
 nnoremap - <C-x>
 
+"vnoremap jj <esc>
+"inoremap jj <esc>
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
