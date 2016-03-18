@@ -5,9 +5,7 @@ call add(g:pathogen_disabled, 'syntastic')
 call add(g:pathogen_disabled, 'vim-railscasts-theme')
 call add(g:pathogen_disabled, 'vim-colors-solarized')
 call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
-"call add(g:pathogen_disabled, 'vim-sleuth')
-"call add(g:pathogen_disabled, 'vim-endwise')
-call add(g:pathogen_disabled, 'vim-rails')
+call add(g:pathogen_disabled, 'Smart-Tabs') " Crappy thing working badly with ruby and coffeescript
 execute pathogen#infect()
 
 set encoding=utf8
