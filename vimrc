@@ -72,7 +72,7 @@ set tabstop=4
 " set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
 set laststatus=2
 " Turn on smart indents. For example, an indent after `{`
-"set smartindent
+set smartindent
 " Display metching symbols
 set showmatch
 " Default window size
