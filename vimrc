@@ -234,6 +234,22 @@ let g:tagbar_type_coffee = {
 		\ 'f:fields',
 	\]
 \}
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-M> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Indent guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
