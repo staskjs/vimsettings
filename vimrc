@@ -107,11 +107,11 @@ autocmd BufWritePost vimrc source %
 
 
 function! SuperCleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
 		return "\<Tab>"
-    else
-        return "\<C-p>"
-    endif
+	else
+		return "\<C-p>"
+	endif
 endfunction
 
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
@@ -209,7 +209,7 @@ let g:slime_target = "tmux"
 
 " Enable hard mode by default
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*"  ]
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__"  ]
 let g:hardtime_timeout = 500
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
@@ -220,6 +220,20 @@ nnoremap - <C-x>
 
 "vnoremap jj <esc>
 "inoremap jj <esc>
+
+" Tagbar configs
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_coffee = {
+	\ 'ctagstype' : 'coffee',
+	\ 'kinds'	  : [
+		\ 'c:classes',
+		\ 'm:methods',
+		\ 'f:functions',
+		\ 'v:variables',
+		\ 'f:fields',
+	\]
+\}
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
