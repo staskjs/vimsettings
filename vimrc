@@ -150,6 +150,13 @@ function! MyAutoformat()
 endfunction
 noremap <F3> :call MyAutoformat()<CR>
 
+function! SpacesToTabs()
+	:set tabstop=2
+	:retab!
+	:set tabstop=4
+endfunction
+noremap <F6> :call SpacesToTabs()<CR>
+
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
 map <Leader> <Plug>(easymotion-prefix)
@@ -209,7 +216,7 @@ let g:slime_target = "tmux"
 
 " Enable hard mode by default
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__"  ]
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__"	]
 let g:hardtime_timeout = 500
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
@@ -226,7 +233,7 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:tagbar_type_coffee = {
 	\ 'ctagstype' : 'coffee',
-	\ 'kinds'	  : [
+	\ 'kinds'		: [
 		\ 'c:classes',
 		\ 'm:methods',
 		\ 'f:functions',
@@ -238,17 +245,17 @@ let g:tagbar_type_coffee = {
 " Show syntax highlighting groups for word under cursor
 nmap <C-M> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 " Indent guides
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesOdd	ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 "----------- Visuals ------------
 
