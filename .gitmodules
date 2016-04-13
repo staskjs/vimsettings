@@ -139,3 +139,6 @@
 [submodule "bundle/vim-exchange"]
 	path = bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
