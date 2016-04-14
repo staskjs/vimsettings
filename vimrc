@@ -257,6 +257,9 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd	ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+
+" Closetags
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.ejs,*.html.erb"
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
