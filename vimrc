@@ -157,6 +157,11 @@ function! SpacesToTabs()
 endfunction
 noremap <F6> :call SpacesToTabs()<CR>
 
+function! Paste()
+	:set paste!
+endfunction
+noremap <F7> :call Paste()<CR>
+
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
 map <Leader> <Plug>(easymotion-prefix)
