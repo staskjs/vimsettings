@@ -128,8 +128,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
-map  <C-l> :bn<CR>
-map  <C-h> :bp<CR>
+noremap  <C-l> :bn<CR>
+noremap  <C-h> :bp<CR>
 
 " map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
