@@ -128,8 +128,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
-map  <C-l> :bn<CR>
-map  <C-h> :bp<CR>
+noremap  <C-l> :bn<CR>
+noremap  <C-h> :bp<CR>
 
 " map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -156,6 +156,11 @@ function! SpacesToTabs()
 	:set tabstop=4
 endfunction
 noremap <F6> :call SpacesToTabs()<CR>
+
+function! Paste()
+	:set paste!
+endfunction
+noremap <F7> :call Paste()<CR>
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
@@ -257,6 +262,9 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd	ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+
+" Closetags
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.ejs,*.html.erb"
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
