@@ -274,3 +274,5 @@ highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
 
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
