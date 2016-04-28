@@ -1,7 +1,7 @@
 # Installation
 ```
 cd ~
-git clone https://github.com/dragothefiery/vimsettings.git ~/.vim
+git clone https://github.com/staskjs/vimsettings.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 git submodule init
@@ -20,7 +20,15 @@ git submodule update --init --recursive
 
 `<leader>ci` - toggle comment
 
+`F3` - autoformat
+
 `F4` - find word under cursor in all files
+
+`F6` - convert 2 spaces to tab
+
+`F7` - toggle paste mode
+
+`F8` - toggle tagbar
 
 `Ctrl-w-w` - cycle between opened windows
 
@@ -30,8 +38,16 @@ git submodule update --init --recursive
 
 `s` - easymotion find
 
-`w`- easymotion bidirectional find
+`space`- easymotion bidirectional find
+
+`<leader>space` - easymotion find by 2 symbols
 
 `<leader>q` - close current buffer
 
-`Ctrl-S` - surround with
+`Shift-S` - surround with
+
+`<leader>ev` - open .vimrc
+
+`<leader>es` - source .vimrc
+
+`<leader>ss` - save session
