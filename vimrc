@@ -236,6 +236,9 @@ nnoremap - <C-x>
 " Tagbar configs
 nmap <F8> :TagbarToggle<CR>
 
+" Add delimeter to nerd tree commenting
+let NERDSpaceDelims=1
+
 let g:tagbar_type_coffee = {
 	\ 'ctagstype' : 'coffee',
 	\ 'kinds'		: [
