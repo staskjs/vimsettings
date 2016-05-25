@@ -5,6 +5,7 @@ call add(g:pathogen_disabled, 'syntastic')
 call add(g:pathogen_disabled, 'vim-railscasts-theme')
 call add(g:pathogen_disabled, 'vim-colors-solarized')
 call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
+call add(g:pathogen_disabled, 'auto-pairs')
 call add(g:pathogen_disabled, 'Smart-Tabs') " Crappy thing working badly with ruby and coffeescript
 execute pathogen#infect()
 
@@ -268,6 +269,9 @@ hi IndentGuidesEven ctermbg=darkgrey
 
 " Closetags
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.ejs,*.html.erb"
+
+" Dasht
+nnoremap <Leader>k :Dasht<Space>
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
