@@ -64,7 +64,7 @@ set autoindent
 " Do not force new line
 set nowrap
 " Tab to space
-"set noexpandtab
+set noexpandtab
 " Tab default width
 set shiftwidth=4
 set softtabstop=4
