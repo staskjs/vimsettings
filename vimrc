@@ -16,6 +16,8 @@ colorscheme xoria256
 
 filetype plugin indent on
 
+" Set terminal
+set term=screen-256color
 " Show line numbers
 set relativenumber
 set number
@@ -64,7 +66,7 @@ set autoindent
 " Do not force new line
 set nowrap
 " Tab to space
-set noexpandtab
+set expandtab
 " Tab default width
 set shiftwidth=4
 set softtabstop=4
