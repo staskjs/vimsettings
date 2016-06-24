@@ -171,8 +171,8 @@ map <Leader> <Plug>(easymotion-prefix)
 map <Space> <Plug>(easymotion-bd-w)
 map <Leader><Space> <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-s)
-omap t <Plug>(easymotion-bd-tl)
-omap f <Plug>(easymotion-bd-fl)
+" omap t <Plug>(easymotion-bd-tl)
+" omap f <Plug>(easymotion-bd-fl)
 let g:EasyMotion_smartcase = 1
 "nmap <Leader>s <Plug>(easymotion-jumptoanywhere)
 
