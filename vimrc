@@ -145,8 +145,6 @@ let g:php_cs_fixer_level = "symfony"
 function! MyAutoformat()
 	if &filetype == 'php'
 		:call PhpCsFixerFixFile()
-		:set noexpandtab
-		:retab!
 	else
 		:Autoformat
 	endif
