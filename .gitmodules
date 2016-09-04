@@ -145,3 +145,6 @@
 [submodule "bundle/better-indent-support-for-php-with-html"]
 	path = bundle/better-indent-support-for-php-with-html
 	url = https://github.com/captbaritone/better-indent-support-for-php-with-html.git
+[submodule "bundle/vim-vue"]
+	path = bundle/vim-vue
+	url = https://github.com/posva/vim-vue.git

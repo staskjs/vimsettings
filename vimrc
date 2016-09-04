@@ -295,3 +295,5 @@ if $DOTFILES_SIMPLE_THEME != 1
 	let g:airline_powerline_fonts = 1
 	let g:Powerline_symbols = 'fancy'
 endif
+
+source ~/.vim/nerdcommenter-vue.vim
