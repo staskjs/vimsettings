@@ -1,20 +1,63 @@
-let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'bufexplorer.zip')
-call add(g:pathogen_disabled, 'vim-gitgutter')
-call add(g:pathogen_disabled, 'syntastic')
-call add(g:pathogen_disabled, 'vim-railscasts-theme')
-call add(g:pathogen_disabled, 'vim-colors-solarized')
-call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
-call add(g:pathogen_disabled, 'auto-pairs')
-call add(g:pathogen_disabled, 'Smart-Tabs') " Crappy thing working badly with ruby and coffeescript
-execute pathogen#infect()
+" let g:pathogen_disabled = []
+" call add(g:pathogen_disabled, 'bufexplorer.zip')
+" call add(g:pathogen_disabled, 'vim-gitgutter')
+" call add(g:pathogen_disabled, 'syntastic')
+" call add(g:pathogen_disabled, 'vim-railscasts-theme')
+" call add(g:pathogen_disabled, 'vim-colors-solarized')
+" call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
+" call add(g:pathogen_disabled, 'auto-pairs')
+" call add(g:pathogen_disabled, 'Smart-Tabs') " Crappy thing working badly with ruby and coffeescript
+" execute pathogen#infect()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'posva/vim-vue' " Highlighting for vue components
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'xoria256.vim'
+Plugin 'guns/jellyx.vim'
+Plugin 'pangloss/vim-javascript' " Better js highlighting
+Plugin 'isRuslan/vim-es6' " Better es6 highlighting
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'othree/html5.vim'
+Plugin 'Yggdroot/indentLine' " Adds vertical guides
+Plugin 'tmhedberg/matchit' " Extends % for tags, etc
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'SirVer/ultisnips' " Snippets
+Plugin 'vim-airline/vim-airline'
+Plugin 'gioele/vim-autoswap' " Removes nasty swap thingy in vim
+Plugin 'moll/vim-bbye' " Adds :Bclose command that closed buffer
+Plugin 'tpope/vim-bundler'
+" Plugin 'alvan/vim-closetag'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'xolox/vim-easytags' " Automatic ctags generation
+Plugin 'tpope/vim-endwise' " Adds 'end' completion in ruby
+Plugin 'tommcdo/vim-exchange' " Adds methods to swap text (exchange)
+Plugin 'tpope/vim-fugitive' " Git commands in vim
+Plugin 'takac/vim-hardtime'
+Plugin 'austintaylor/vim-indentobject' " To manipilate objects on same indent level
+Plugin 'briancollins/vim-jst' " For jst/ejs syntax
+Plugin 'tpope/vim-repeat' " Extends dot capabilities
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'xolox/vim-session' " For remembering working session
+Plugin 'tpope/vim-sleuth' " For auto adjusting tab width
+Plugin 'tpope/vim-surround'
+Plugin 'xolox/vim-misc'
+Plugin 'ap/vim-buftabline' " Tabline
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 set encoding=utf8
 set background=dark
 set t_Co=256
-colorscheme xoria256
-
-filetype plugin indent on
+colorscheme jellyx
 
 " Set terminal
 set term=screen-256color
@@ -180,9 +223,9 @@ set iminsert=0
 set imsearch=0 
 
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 0
@@ -191,6 +234,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
 let g:syntastic_typescript_tsc_fname = ''
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = "resources --ext js,vue"
 
 " Buffer close
 :nnoremap <Leader>q :Bdelete<CR>
@@ -212,7 +257,7 @@ let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
 " Sessions
 let g:session_autosave = 'no'
 let g:session_autoload = 'yes'
-let g:session_directory = ".vim/sessions"
+let g:session_directory = xolox#misc#path#merge('~/.vim/sessions', getcwd())
 let g:session_lock_enabled = 0
 
 "autocmd BufLeave * :SaveSession!
