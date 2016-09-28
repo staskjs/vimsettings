@@ -12,6 +12,7 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue' " Highlighting for vue components
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guns/jellyx.vim'
@@ -51,7 +52,6 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 call vundle#end()
-filetype plugin indent on
 
 set encoding=utf8
 set background=dark
@@ -65,10 +65,6 @@ set term=screen-256color
 " Show line numbers
 set relativenumber
 set number
-" Turn on syntax highlight
-syntax on
-" Search while typing
-set incsearch
 " Highlight search results
 set hlsearch
 " Smart case. Details `:h smartcast`
@@ -78,8 +74,6 @@ set smartcase
 set termencoding=utf8
 " Turn on incompatibility for vi settings, bacause we wont need vi
 set nocompatible
-" Show cursor position all the time
-set ruler
 " Show unfinished commands in status bar
 set showcmd
 " Folding by indents
@@ -105,8 +99,6 @@ set guioptions-=L
 set ch=1
 " Hide mouse pointer while typing
 set mousehide
-" Tugn on autoindents
-set autoindent
 " Do not force new line
 set nowrap
 " Tab to space
@@ -115,9 +107,6 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-" Statusline format
-" set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
-set laststatus=2
 " Turn on smart indents. For example, an indent after `{`
 set smartindent
 " Display metching symbols
@@ -127,19 +116,12 @@ set showmatch
 "set columns=140
 " Russian symbols navigation. Next\prev word , etc
 set iskeyword=@,48-57,_,192-255
-" Delete symbols by backspace in Windows
-set backspace=indent,eol,start
 " Highlight line where cursor is positioned
 set cursorline
 "highlight CursorLine guibg=lightblue ctermbg=lightgray
 "highlight CursorLine term=none cterm=none
-" Enlarge history size
-set history=200
-" Additional info on status line
-set wildmenu
 " Special symbols display
 set list listchars=tab:→\ ,trail:·
-highlight SpecialKey guifg=darkgrey ctermfg=darkgrey
 " Turn on side plugins
 filetype plugin on
 " Switch leader-button to comma
@@ -177,6 +159,7 @@ endfunction
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeFind<CR>
 noremap  <C-l> :bn<CR>
 noremap  <C-h> :bp<CR>
 
@@ -299,6 +282,8 @@ highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
 
 highlight Directory guifg=#FF0000 ctermfg=173
+
+highlight SpecialKey guifg=darkgrey ctermfg=darkgrey
 
 if $DOTFILES_SIMPLE_THEME != 1
 	let g:airline_powerline_fonts = 1
