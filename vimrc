@@ -156,7 +156,7 @@ if has('persistent_undo')
   let &undodir = myUndoDir
   set undofile
   set undolevels=1000
-    set undoreload=10000
+  set undoreload=10000
 endif
 
 " Quick open .vimrc
@@ -166,34 +166,19 @@ nmap <leader>es :source $MYVIMRC<CR>
 " Auto-source Vimrc on save
 autocmd BufWritePost vimrc source %
 
-
 function! SuperCleverTab()
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-		return "\<Tab>"
-	else
-		return "\<C-p>"
-	endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  else
+    return "\<C-p>"
+  endif
 endfunction
 
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
-let g:ycm_auto_trigger = 0
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
 noremap  <C-l> :bn<CR>
 noremap  <C-h> :bp<CR>
-
-" map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Autoformat options
 let g:formatters_ejs = ['htmlbeautify']
@@ -201,23 +186,16 @@ let g:formatters_eruby = ['htmlbeautify']
 let g:php_cs_fixer_level = "symfony"
 "let g:php_cs_fixer_fixers_list = "-indentation"
 function! MyAutoformat()
-	if &filetype == 'php'
-		:call PhpCsFixerFixFile()
-	else
-		:Autoformat
-	endif
+  if &filetype == 'php'
+    :call PhpCsFixerFixFile()
+  else
+    :Autoformat
+  endif
 endfunction
 noremap <F3> :call MyAutoformat()<CR>
 
-function! SpacesToTabs()
-	:set tabstop=2
-	:retab!
-	:set tabstop=4
-endfunction
-noremap <F6> :call SpacesToTabs()<CR>
-
 function! Paste()
-	:set paste!
+  :set paste!
 endfunction
 noremap <F7> :call Paste()<CR>
 
@@ -227,30 +205,14 @@ map <Leader> <Plug>(easymotion-prefix)
 map <Space> <Plug>(easymotion-bd-w)
 map <Leader><Space> <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-s)
-" omap t <Plug>(easymotion-bd-tl)
-" omap f <Plug>(easymotion-bd-fl)
 let g:EasyMotion_smartcase = 1
-"nmap <Leader>s <Plug>(easymotion-jumptoanywhere)
 
 " Russian language support, switch layout on Ctrl-^
 set keymap=russian-jcukenwin 
-set iminsert=0 
-set imsearch=0 
-
+set iminsert=0
+set imsearch=0
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" Syntastic
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [] }
-let g:syntastic_typescript_tsc_fname = ''
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_args = "resources --ext js,vue"
 
 " Buffer close
 :nnoremap <Leader>q :Bdelete<CR>
@@ -262,8 +224,6 @@ nnoremap <esc>^[ <esc>^[
 let g:Powerline_symbols = 'fancy'
 
 let javascript_enable_domhtmlcss = 1
-
-let g:CoffeeAutoTagFile = './coffeetags'
 
 " CTAGS auto update
 "let g:easytags_async = 1
@@ -287,38 +247,8 @@ let g:hardtime_timeout = 500
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
-" Remap increment and decrement actions
-" nnoremap + <C-a>
-" nnoremap - <C-x>
-
-"vnoremap jj <esc>
-"inoremap jj <esc>
-
-" Tagbar configs
-nmap <F8> :TagbarToggle<CR>
-
 " Add delimeter to nerd tree commenting
 let NERDSpaceDelims=1
-
-let g:tagbar_type_coffee = {
-	\ 'ctagstype' : 'coffee',
-	\ 'kinds'		: [
-		\ 'c:classes',
-		\ 'm:methods',
-		\ 'f:functions',
-		\ 'v:variables',
-		\ 'f:fields',
-	\]
-\}
-
-" Show syntax highlighting groups for word under cursor
-" nmap <C-M> :call <SID>SynStack()<CR>
-" function! <SID>SynStack()
-	" if !exists("*synstack")
-		" return
-	" endif
-	" echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-" endfunc
 
 " Indent guides
 let g:indent_guides_start_level = 2
@@ -329,9 +259,6 @@ hi IndentGuidesEven ctermbg=darkgrey
 
 " Closetags
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.ejs,*.html.erb"
-
-" Dasht
-nnoremap <Leader>k :Dasht<Space>
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
 set wildignore+=*\\node_modules\\*,*.so,*.swp,*.zip
