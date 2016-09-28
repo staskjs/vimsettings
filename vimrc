@@ -14,7 +14,6 @@ call vundle#begin()
 
 Plugin 'posva/vim-vue' " Highlighting for vue components
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'xoria256.vim'
 Plugin 'guns/jellyx.vim'
 Plugin 'pangloss/vim-javascript' " Better js highlighting
 Plugin 'isRuslan/vim-es6' " Better es6 highlighting
@@ -48,8 +47,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'ap/vim-buftabline' " Tabline
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -58,6 +57,8 @@ set encoding=utf8
 set background=dark
 set t_Co=256
 colorscheme jellyx
+
+" set timeoutlen=100
 
 " Set terminal
 set term=screen-256color
@@ -144,6 +145,20 @@ filetype plugin on
 " Switch leader-button to comma
 let mapleader=","
 
+" Keep undo history across sessions by storing it in a file
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+if has('persistent_undo')
+  let myUndoDir = expand(vimDir . '/undodir')
+  " Create dirs
+  call system('mkdir ' . myUndoDir)
+  let &undodir = myUndoDir
+  set undofile
+  set undolevels=1000
+    set undoreload=10000
+endif
+
 " Quick open .vimrc
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>es :source $MYVIMRC<CR>
@@ -224,8 +239,8 @@ set imsearch=0
 
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 0
@@ -263,8 +278,6 @@ let g:session_lock_enabled = 0
 "autocmd BufLeave * :SaveSession!
 :nnoremap <Leader>ss :SaveSession!<CR>
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
-
 let g:slime_target = "tmux"
 
 " Enable hard mode by default
@@ -275,8 +288,8 @@ let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
 " Remap increment and decrement actions
-nnoremap + <C-a>
-nnoremap - <C-x>
+" nnoremap + <C-a>
+" nnoremap - <C-x>
 
 "vnoremap jj <esc>
 "inoremap jj <esc>
@@ -299,13 +312,13 @@ let g:tagbar_type_coffee = {
 \}
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-M> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" nmap <C-M> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+	" if !exists("*synstack")
+		" return
+	" endif
+	" echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
 
 " Indent guides
 let g:indent_guides_start_level = 2
@@ -319,6 +332,28 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.ejs,*.html.erb"
 
 " Dasht
 nnoremap <Leader>k :Dasht<Space>
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules|svn)$'
+set wildignore+=*\\node_modules\\*,*.so,*.swp,*.zip
+
+" Let ctrl p index more files
+let g:ctrlp_max_files=0
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_user_command = 'find %s -type f'
+" if executable('ag')
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
+
+" Remove concealing in markdown
+:set conceallevel=0
+
+" Allow to copy/paste between VIM instances
+" "copy the current visual selection to ~/.vbuf
+vmap <Leader>y :w! ~/.vbuf<CR>
+" "copy the current line to the buffer file if no visual selection
+nmap <Leader>y :.w! ~/.vbuf<CR>
+" "paste the contents of the buffer file
+nmap <Leader>p :r ~/.vbuf<CR>
 "----------- Visuals ------------
 
 highlight lCursor ctermfg=NONE ctermbg=Cyan
@@ -335,6 +370,8 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
+
+highlight Directory guifg=#FF0000 ctermfg=173
 
 if $DOTFILES_SIMPLE_THEME != 1
 	let g:airline_powerline_fonts = 1
