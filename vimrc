@@ -15,7 +15,9 @@ call vundle#begin()
 Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue' " Highlighting for vue components
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'guns/jellyx.vim'
+" Plugin 'blueshirts/darcula'
+" Plugin 'guns/jellyx.vim'
+Plugin 'robertmeta/nofrils'
 Plugin 'pangloss/vim-javascript' " Better js highlighting
 Plugin 'isRuslan/vim-es6' " Better es6 highlighting
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
@@ -32,7 +34,6 @@ Plugin 'moll/vim-bbye' " Adds :Bclose command that closed buffer
 Plugin 'tpope/vim-bundler'
 " Plugin 'alvan/vim-closetag'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'xolox/vim-easytags' " Automatic ctags generation
 Plugin 'tpope/vim-endwise' " Adds 'end' completion in ruby
 Plugin 'tommcdo/vim-exchange' " Adds methods to swap text (exchange)
@@ -50,13 +51,16 @@ Plugin 'ap/vim-buftabline' " Tabline
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
 set encoding=utf8
 set background=dark
 set t_Co=256
-colorscheme jellyx
+colorscheme nofrils-dark
 
 " set timeoutlen=100
 
@@ -182,13 +186,17 @@ function! Paste()
 endfunction
 noremap <F7> :call Paste()<CR>
 
+" Indent lines
+noremap <F9> :IndentLinesToggle<CR>
+let g:indentLine_enabled = 0
+
 " Easy Motion
-let g:EasyMotion_do_mapping = 0
-map <Leader> <Plug>(easymotion-prefix)
-map <Space> <Plug>(easymotion-bd-w)
-map <Leader><Space> <Plug>(easymotion-s2)
-nmap s <Plug>(easymotion-s)
-let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_do_mapping = 0
+" map <Leader> <Plug>(easymotion-prefix)
+" map <Space> <Plug>(easymotion-bd-w)
+" map <Leader><Space> <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s)
+" let g:EasyMotion_smartcase = 1
 
 " Russian language support, switch layout on Ctrl-^
 set keymap=russian-jcukenwin 
@@ -209,7 +217,9 @@ let g:Powerline_symbols = 'fancy'
 let javascript_enable_domhtmlcss = 1
 
 " CTAGS auto update
-"let g:easytags_async = 1
+let g:easytags_async = 1
+let g:easytags_auto_update = 0
+let g:easytags_always_enabled = 0
 let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
 
 " Sessions
@@ -226,7 +236,8 @@ let g:slime_target = "tmux"
 " Enable hard mode by default
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__"	]
-let g:hardtime_timeout = 500
+let g:hardtime_timeout = 50
+let g:hardtime_allow_different_key = 1
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
@@ -257,6 +268,9 @@ let g:ctrlp_user_command = 'find %s -type f'
 " Remove concealing in markdown
 :set conceallevel=0
 
+nmap <Leader>m :e database/migrations<CR>
+nmap <Leader>t :UpdateTags<CR>
+
 " Allow to copy/paste between VIM instances
 " "copy the current visual selection to ~/.vbuf
 vmap <Leader>y :w! ~/.vbuf<CR>
@@ -264,26 +278,6 @@ vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 " "paste the contents of the buffer file
 nmap <Leader>p :r ~/.vbuf<CR>
-"----------- Visuals ------------
-
-highlight lCursor ctermfg=NONE ctermbg=Cyan
-
-" Line number background
-highlight LineNr ctermbg=bg guibg=bg
-
-" Remove ugly vertical split border background
-highlight vertsplit ctermbg=bg ctermfg=grey guibg=bg guifg=grey
-
-" Clear left git gutter column colors
-highlight clear SignColumn
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=yellow
-
-highlight Directory guifg=#FF0000 ctermfg=173
-
-highlight SpecialKey guifg=darkgrey ctermfg=darkgrey
 
 if $DOTFILES_SIMPLE_THEME != 1
 	let g:airline_powerline_fonts = 1
