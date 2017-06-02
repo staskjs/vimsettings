@@ -12,6 +12,7 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue' " Highlighting for vue components
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -28,6 +29,7 @@ Plugin 'tmhedberg/matchit' " Extends % for tags, etc
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'SirVer/ultisnips' " Snippets
+Plugin 'honza/vim-snippets' " Needed for ultisnips
 Plugin 'vim-airline/vim-airline'
 Plugin 'gioele/vim-autoswap' " Removes nasty swap thingy in vim
 Plugin 'moll/vim-bbye' " Adds :Bclose command that closed buffer
@@ -38,7 +40,7 @@ Plugin 'xolox/vim-easytags' " Automatic ctags generation
 Plugin 'tpope/vim-endwise' " Adds 'end' completion in ruby
 Plugin 'tommcdo/vim-exchange' " Adds methods to swap text (exchange)
 Plugin 'tpope/vim-fugitive' " Git commands in vim
-Plugin 'takac/vim-hardtime'
+" Plugin 'takac/vim-hardtime'
 Plugin 'austintaylor/vim-indentobject' " To manipilate objects on same indent level
 Plugin 'briancollins/vim-jst' " For jst/ejs syntax
 Plugin 'tpope/vim-repeat' " Extends dot capabilities
@@ -52,7 +54,7 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
@@ -212,7 +214,7 @@ set statusline+=%#warningmsg#
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 
 let javascript_enable_domhtmlcss = 1
 
@@ -234,7 +236,7 @@ let g:session_lock_enabled = 0
 let g:slime_target = "tmux"
 
 " Enable hard mode by default
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__"	]
 let g:hardtime_timeout = 50
 let g:hardtime_allow_different_key = 1
@@ -243,6 +245,10 @@ let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<R
 
 " Add delimeter to nerd tree commenting
 let NERDSpaceDelims=1
+
+" Set ultisnips directory
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+" let g:UltiSnipsExpandTrigger = "<tab>"
 
 " Indent guides
 let g:indent_guides_start_level = 2
@@ -279,9 +285,9 @@ nmap <Leader>y :.w! ~/.vbuf<CR>
 " "paste the contents of the buffer file
 nmap <Leader>p :r ~/.vbuf<CR>
 
-if $DOTFILES_SIMPLE_THEME != 1
-	let g:airline_powerline_fonts = 1
-	let g:Powerline_symbols = 'fancy'
-endif
+" if $DOTFILES_SIMPLE_THEME != 1
+	" let g:airline_powerline_fonts = 1
+	" let g:Powerline_symbols = 'fancy'
+" endif
 
 source ~/.vim/nerdcommenter-vue.vim
