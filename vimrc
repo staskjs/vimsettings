@@ -56,6 +56,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-vinegar'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
@@ -247,7 +248,8 @@ let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<R
 let NERDSpaceDelims=1
 
 " Set ultisnips directory
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
 " let g:UltiSnipsExpandTrigger = "<tab>"
 
 " Indent guides
@@ -289,5 +291,7 @@ nmap <Leader>p :r ~/.vbuf<CR>
 	" let g:airline_powerline_fonts = 1
 	" let g:Powerline_symbols = 'fancy'
 " endif
+
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
 source ~/.vim/nerdcommenter-vue.vim
