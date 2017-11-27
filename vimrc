@@ -1,19 +1,8 @@
-" let g:pathogen_disabled = []
-" call add(g:pathogen_disabled, 'bufexplorer.zip')
-" call add(g:pathogen_disabled, 'vim-gitgutter')
-" call add(g:pathogen_disabled, 'syntastic')
-" call add(g:pathogen_disabled, 'vim-railscasts-theme')
-" call add(g:pathogen_disabled, 'vim-colors-solarized')
-" call add(g:pathogen_disabled, 'vim-nerdtree-tabs')
-" call add(g:pathogen_disabled, 'auto-pairs')
-" call add(g:pathogen_disabled, 'Smart-Tabs') " Crappy thing working badly with ruby and coffeescript
-" execute pathogen#infect()
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
+" Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue' " Highlighting for vue components
 Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'blueshirts/darcula'
@@ -49,7 +38,7 @@ Plugin 'xolox/vim-session' " For remembering working session
 Plugin 'tpope/vim-sleuth' " For auto adjusting tab width
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
-Plugin 'ap/vim-buftabline' " Tabline
+" Plugin 'ap/vim-buftabline' " Tabline
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
@@ -57,6 +46,8 @@ Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'roxma/vim-paste-easy'
 
 call vundle#end()
 
@@ -66,6 +57,25 @@ set t_Co=256
 colorscheme nofrils-dark
 
 " set timeoutlen=100
+
+" Defaults
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+
+set incsearch
+
+set laststatus=2
+set ruler
+set wildmenu
+
+syntax enable
+
+set regexpengine=1
+
+
 
 " Set terminal
 set term=screen-256color
@@ -134,6 +144,10 @@ filetype plugin on
 " Switch leader-button to comma
 let mapleader=","
 
+" Disable automatic new line at the end of file
+set noeol
+set nofixendofline
+
 " Keep undo history across sessions by storing it in a file
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
@@ -167,8 +181,8 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-\> :NERDTreeFind<CR>
-noremap  <C-l> :bn<CR>
-noremap  <C-h> :bp<CR>
+" noremap  <C-l> :bn<CR>
+" noremap  <C-h> :bp<CR>
 
 " Autoformat options
 let g:formatters_ejs = ['htmlbeautify']
@@ -187,7 +201,14 @@ noremap <F3> :call MyAutoformat()<CR>
 function! Paste()
   :set paste!
 endfunction
-noremap <F7> :call Paste()<CR>
+
+" function! Paste()
+  " :set paste
+  " :call feedkeys("i\<D-v>\<esc>")
+  " :set nopaste
+" endfunction
+
+nnoremap <F7> :call Paste()<CR>
 
 " Indent lines
 noremap <F9> :IndentLinesToggle<CR>
@@ -286,6 +307,16 @@ vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 " "paste the contents of the buffer file
 nmap <Leader>p :r ~/.vbuf<CR>
+
+nmap <Leader>n :cn<CR>
+nmap <Leader>p :cp<CR>
+
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+nnoremap <silent> <bs> <C-w><Left>
 
 " if $DOTFILES_SIMPLE_THEME != 1
 	" let g:airline_powerline_fonts = 1
