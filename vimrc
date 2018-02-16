@@ -25,7 +25,7 @@ Plugin 'moll/vim-bbye' " Adds :Bclose command that closed buffer
 Plugin 'tpope/vim-bundler'
 " Plugin 'alvan/vim-closetag'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'xolox/vim-easytags' " Automatic ctags generation
+" Plugin 'xolox/vim-easytags' " Automatic ctags generation
 Plugin 'tpope/vim-endwise' " Adds 'end' completion in ruby
 Plugin 'tommcdo/vim-exchange' " Adds methods to swap text (exchange)
 Plugin 'tpope/vim-fugitive' " Git commands in vim
@@ -47,7 +47,7 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'tpope/vim-vinegar'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'roxma/vim-paste-easy'
+" Plugin 'roxma/vim-paste-easy'
 
 call vundle#end()
 
@@ -181,6 +181,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-\> :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
 " noremap  <C-l> :bn<CR>
 " noremap  <C-h> :bp<CR>
 
@@ -223,7 +224,7 @@ let g:indentLine_enabled = 0
 " let g:EasyMotion_smartcase = 1
 
 " Russian language support, switch layout on Ctrl-^
-set keymap=russian-jcukenwin 
+" set keymap=russian-jcukenwin 
 set iminsert=0
 set imsearch=0
 
