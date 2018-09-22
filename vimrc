@@ -310,7 +310,7 @@ nmap <Leader>y :.w! ~/.vbuf<CR>
 nmap <Leader>p :r ~/.vbuf<CR>
 
 nmap <Leader>n :cn<CR>
-nmap <Leader>p :cp<CR>
+nmap <Leader>b :cp<CR>
 
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
