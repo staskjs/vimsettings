@@ -3,30 +3,30 @@ let g:SynDebug = 0
 map <leader>cd :call ToggleDebug()<CR>
 imap <leader>ci <SPACE><BS><ESC>:call Comment('Insert')<cr>
 map <leader>ca :call Comment('AltDelims')<cr>
-xmap <leader>c$ :call Comment('ToEOL', 'x')<cr>
-nmap <leader>c$ :call Comment('ToEOL', 'n')<cr>
-xmap <leader>cA :call Comment('Append', 'x')<cr>
-nmap <leader>cA :call Comment('Append', 'n')<cr>
-xmap <leader>cs :call Comment('Sexy', 'x')<cr>
-nmap <leader>cs :call Comment('Sexy', 'n')<cr>
-xmap <leader>ci :call Comment('Invert', 'x')<cr>
-nmap <leader>ci :call Comment('Invert', 'n')<cr>
-xmap <leader>cm :call Comment('Minimal', 'x')<cr>
-nmap <leader>cm :call Comment('Minimal', 'n')<cr>
-xmap <leader>c<space> :call Comment('Toggle', 'x')<cr>
-nmap <leader>c<space> :call Comment('Toggle', 'n')<cr>
-xmap <leader>cl :call Comment('AlignLeft', 'x')<cr>
-nmap <leader>cl :call Comment('AlignLeft', 'n')<cr>
-xmap <leader>cb :call Comment('AlignBoth', 'x')<cr>
-nmap <leader>cb :call Comment('AlignBoth', 'n')<cr>
-xmap <leader>cc :call Comment('Comment', 'x')<cr>
-nmap <leader>cc :call Comment('Comment', 'n')<cr>
-xmap <leader>cn :call Comment('Nested', 'x')<cr>
-nmap <leader>cn :call Comment('Nested', 'n')<cr>
-xmap <leader>cu :call Comment('Uncomment', 'x')<cr>
-nmap <leader>cu :call Comment('Uncomment', 'n')<cr>
-xmap <leader>cy :call Comment('Yank', 'x')<cr>
-nmap <leader>cy :call Comment('Yank', 'n')<cr>
+xmap <leader>c$ :call nerdcommenter#Comment('x', 'ToEOL')<cr>
+nmap <leader>c$ :call nerdcommenter#Comment('n', 'ToEOL')<cr>
+xmap <leader>cA :call nerdcommenter#Comment('x', 'Append')<cr>
+nmap <leader>cA :call nerdcommenter#Comment('n', 'Append')<cr>
+xmap <leader>cs :call nerdcommenter#Comment('x', 'Sexy')<cr>
+nmap <leader>cs :call nerdcommenter#Comment('n', 'Sexy')<cr>
+xmap <leader>ci :call nerdcommenter#Comment('x', 'Invert')<cr>
+nmap <leader>ci :call nerdcommenter#Comment('n', 'Invert')<cr>
+xmap <leader>cm :call nerdcommenter#Comment('x', 'Minimal')<cr>
+nmap <leader>cm :call nerdcommenter#Comment('n', 'Minimal')<cr>
+xmap <leader>c<space> :call nerdcommenter#Comment('x', 'Toggle')<cr>
+nmap <leader>c<space> :call nerdcommenter#Comment('n', 'Toggle')<cr>
+xmap <leader>cl :call nerdcommenter#Comment('x', 'AlignLeft')<cr>
+nmap <leader>cl :call nerdcommenter#Comment('n', 'AlignLeft')<cr>
+xmap <leader>cb :call nerdcommenter#Comment('x', 'AlignBoth')<cr>
+nmap <leader>cb :call nerdcommenter#Comment('n', 'AlignBoth')<cr>
+xmap <leader>cc :call nerdcommenter#Comment('x', 'Comment')<cr>
+nmap <leader>cc :call nerdcommenter#Comment('n', 'Comment')<cr>
+xmap <leader>cn :call nerdcommenter#Comment('x', 'Nested')<cr>
+nmap <leader>cn :call nerdcommenter#Comment('n', 'Nested')<cr>
+xmap <leader>cu :call nerdcommenter#Comment('x', 'Uncomment')<cr>
+nmap <leader>cu :call nerdcommenter#Comment('n', 'Uncomment')<cr>
+xmap <leader>cy :call nerdcommenter#Comment('x', 'Yank')<cr>
+nmap <leader>cy :call nerdcommenter#Comment('n', 'Yank')<cr>
 let g:NERDCreateDefaultMappings=0
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = {'pug': { 'left': '//-', 'leftAlt': '//' }}

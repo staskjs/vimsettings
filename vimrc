@@ -39,7 +39,7 @@ Plugin 'tpope/vim-sleuth' " For auto adjusting tab width
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 " Plugin 'ap/vim-buftabline' " Tabline
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'preservim/nerdcommenter'
 " Plugin 'scrooloose/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'maksimr/vim-jsbeautify'
