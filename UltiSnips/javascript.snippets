@@ -4,3 +4,19 @@ endsnippet
 snippet test
 	hello $1
 endsnippet
+
+snippet seqtran
+const transaction = await queryInterface.sequelize.transaction();
+try {
+  $1
+  await transaction.commit();
+}
+catch (e) {
+  await transaction.rollback();
+  throw e;
+}
+endsnippet
+
+snippet seqindex
+await queryInterface.addIndex('$1', { fields: ['$2'] }, { transaction });
+endsnippet
