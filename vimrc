@@ -11,7 +11,7 @@ Plugin 'robertmeta/nofrils'
 Plugin 'pangloss/vim-javascript' " Better js highlighting
 Plugin 'isRuslan/vim-es6' " Better es6 highlighting
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
 Plugin 'Yggdroot/indentLine' " Adds vertical guides
 Plugin 'tmhedberg/matchit' " Extends % for tags, etc
@@ -34,7 +34,7 @@ Plugin 'austintaylor/vim-indentobject' " To manipilate objects on same indent le
 Plugin 'briancollins/vim-jst' " For jst/ejs syntax
 Plugin 'tpope/vim-repeat' " Extends dot capabilities
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'xolox/vim-session' " For remembering working session
+" Plugin 'xolox/vim-session' " For remembering working session
 Plugin 'tpope/vim-sleuth' " For auto adjusting tab width
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
@@ -48,6 +48,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'jlanzarotta/bufexplorer'
 " Plugin 'roxma/vim-paste-easy'
+Plugin 'vim-autoformat/vim-autoformat'
 
 call vundle#end()
 
@@ -78,7 +79,7 @@ set regexpengine=1
 
 
 " Set terminal
-set term=screen-256color
+" set term=screen-256color
 " Show line numbers
 set relativenumber
 set number
@@ -169,6 +170,8 @@ nmap <leader>es :source $MYVIMRC<CR>
 " Auto-source Vimrc on save
 autocmd BufWritePost vimrc source %
 
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
+
 function! SuperCleverTab()
   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
     return "\<Tab>"
@@ -248,13 +251,15 @@ let g:easytags_always_enabled = 0
 let g:easytags_opts = ['--exclude=node_modules', '--exclude=.git']
 
 " Sessions
-let g:session_autosave = 'no'
-let g:session_autoload = 'yes'
-let g:session_directory = xolox#misc#path#merge('~/.vim/sessions', getcwd())
-let g:session_lock_enabled = 0
+" let g:session_autosave = 'no'
+" let g:session_autoload = 'yes'
+" let g:session_directory = xolox#misc#path#merge('~/.vim/sessions', getcwd())
+" let g:session_lock_enabled = 0
 
 "autocmd BufLeave * :SaveSession!
-:nnoremap <Leader>ss :SaveSession!<CR>
+" :nnoremap <Leader>ss :SaveSession!<CR>
+" FOR NVIM
+" :nnoremap <Leader>ss :SessionsSave! ~/.config/nvim/sessions/ + vim.fn['getcwd']()<CR>
 
 let g:slime_target = "tmux"
 
