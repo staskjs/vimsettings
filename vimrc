@@ -102,7 +102,7 @@ set foldmethod=indent
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 " Support for a mouse
-"set mouse=a
+set mouse=
 "set mousemodel=popup
 " Do not write buffer while switching to another
 " This lets to edit multiple files without need to save each time before
