@@ -11,13 +11,13 @@ Plugin 'robertmeta/nofrils'
 Plugin 'pangloss/vim-javascript' " Better js highlighting
 Plugin 'isRuslan/vim-es6' " Better es6 highlighting
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
-" Plugin 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
 Plugin 'Yggdroot/indentLine' " Adds vertical guides
 Plugin 'tmhedberg/matchit' " Extends % for tags, etc
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'SirVer/ultisnips' " Snippets
+" Plugin 'SirVer/ultisnips' " Snippets
 Plugin 'honza/vim-snippets' " Needed for ultisnips
 Plugin 'vim-airline/vim-airline'
 Plugin 'gioele/vim-autoswap' " Removes nasty swap thingy in vim
@@ -330,5 +330,8 @@ nnoremap <silent> <bs> <C-w><Left>
 " endif
 
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
+let g:loaded_python3_provider = 0
+let g:loaded_perl_provider = 0
 
 source ~/.vim/nerdcommenter-vue.vim
